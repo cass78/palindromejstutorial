@@ -16,13 +16,16 @@ function Phrase(content){
 	
 	//Returns the letters in the content, eg Hello, World! == helloWorld
 	this.letters = function letters() {
-		let theLetters = [];
-		for(let i = 0; i < this.content.length; i++){
-			if(this.content.charAt(i).match(/[a-zA-Z]/)) {
-				theLetters.push(this.content.charAt(i));
+		//Below illustrates how functioning code can be condensed to one line
+		/* let theLetters = [];
+		const letterRegex = /[a-z]/i;
+		
+		Array.from(this.content).forEach(function(character) {
+			if(character.match(letterRegex)) {
+				theLetters.push(character);
 			}
-		}
-		return theLetters.join("");
+		}); */
+		return Array.from(this.content).filter(c => c.match(/[a-z]/i)).join("");
 	}
 	
 	// returns true for a palindrome, false otherwise
